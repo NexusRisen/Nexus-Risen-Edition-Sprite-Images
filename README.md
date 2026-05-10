@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="Assets/Bot/UI/logo.png" alt="DudeBot.NET Logo" width="200"/>
   <h1>🚀 DudeBot.NET Project Assets</h1>
   <p><b>The ultimate high-performance asset bank for Pokémon automation, trading, and management.</b></p>
 
