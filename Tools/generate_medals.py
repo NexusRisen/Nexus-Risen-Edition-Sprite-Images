@@ -48,36 +48,39 @@ def get_font(size):
 
 milestones = [0, 1] + list(range(50, 1050, 50))
 
+# Pre-calculate the font size based on the widest text ("1000")
+global_font_size = int(height * 0.35)
+temp_draw = ImageDraw.Draw(base_img)
+temp_font = get_font(global_font_size)
+bbox = temp_draw.textbbox((0, 0), "1000", font=temp_font)
+while (bbox[2] - bbox[0]) > width * 0.40:
+    global_font_size -= 5
+    temp_font = get_font(global_font_size)
+    bbox = temp_draw.textbbox((0, 0), "1000", font=temp_font)
+
+global_font = temp_font
+shadow_offset = max(3, int(height * 0.012))
+
 for milestone in milestones:
     img = base_img.copy()
     draw = ImageDraw.Draw(img)
     text = str(milestone)
     
-    # The silver inner circle in the AI generated image is smaller and slightly offset
-    # We will constrain the text to 40% of the total image width to ensure it fits the inner circle
-    font_size = int(height * 0.35)
-    font = get_font(font_size)
-    bbox = draw.textbbox((0, 0), text, font=font)
+    bbox = draw.textbbox((0, 0), text, font=global_font)
     text_width = bbox[2] - bbox[0]
-    
-    while text_width > width * 0.40:
-        font_size -= 5
-        font = get_font(font_size)
-        bbox = draw.textbbox((0, 0), text, font=font)
-        text_width = bbox[2] - bbox[0]
-        
     text_height = bbox[3] - bbox[1]
     
-    # Calculate centering with a slight vertical offset to hit the actual silver circle
     x = (width - text_width) / 2
-    # The silver circle seems a bit lower than true center, add a small offset
+    # Adjust visual centering for '1' due to left serif in Impact font
+    if text == "1":
+        x -= width * 0.035
+        
     y = (height - text_height) / 2 - bbox[1] + (height * 0.04)
     
     outline_color = (0, 0, 0, 255)
-    shadow_offset = max(3, int(height * 0.012))
     text_color = (255, 255, 255, 255)
     
-    draw.text((x, y), text, font=font, fill=text_color, stroke_width=shadow_offset, stroke_fill=outline_color)
+    draw.text((x, y), text, font=global_font, fill=text_color, stroke_width=shadow_offset, stroke_fill=outline_color)
     
     img_resized = img.resize((256, 256), Image.Resampling.LANCZOS)
     
