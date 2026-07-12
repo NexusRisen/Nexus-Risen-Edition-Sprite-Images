@@ -21,8 +21,9 @@ def remove_background(img):
     while queue:
         x, y = queue.popleft()
         r, g, b, a = data[x, y]
-        # Background in the generated image is typically white or very light gray
-        if r > 230 and g > 230 and b > 230:
+        # Erase white background AND grayscale drop-shadow pixels
+        is_gray = abs(r - g) < 40 and abs(r - b) < 40 and abs(g - b) < 40
+        if (r > 200 and g > 200 and b > 200) or is_gray:
             data[x, y] = (255, 255, 255, 0)
             
             for dx, dy in [(-1,0), (1,0), (0,-1), (0,1)]:
