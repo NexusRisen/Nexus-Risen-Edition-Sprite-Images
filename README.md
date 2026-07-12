@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🚀 DudeBot.NET Project Assets</h1>
+  <h1>🚀 NexusBot.NET Project Assets</h1>
   <p><b>The ultimate high-performance asset bank for Pokémon automation, trading, and management.</b></p>
 
   [![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
@@ -11,7 +11,7 @@
 
 ## 📖 Overview
 
-Welcome to the **DudeBot.NET** asset repository. This project serves as the centralized visual and data hub for the DudeBot ecosystem. It houses thousands of high-definition sprites, animated status indicators, and specialized UI elements designed for seamless integration with .NET-based Pokémon automation tools.
+Welcome to the **NexusBot.NET** asset repository. This project serves as the centralized visual and data hub for the NexusBot ecosystem. These assets are actively used in the original repository: [NexusBot.NET](https://github.com/NexusRisen/NexusBot.NET). It houses thousands of high-definition sprites, animated status indicators, and specialized UI elements designed for seamless integration with .NET-based Pokémon automation tools.
 
 ### ✨ Key Features
 - **Total Coverage:** Complete libraries of Shiny and Non-Shiny sprites in both PNG and optimized WebP formats.
