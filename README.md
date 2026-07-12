@@ -30,7 +30,7 @@ The repository is organized into a modular hierarchy to ensure scalability and e
 | :--- | :--- | :--- |
 | **🤖 Bot** | Functional UI & Status | Cloning/Dumping animations, DM status GIFs, and UI buttons. |
 | **🎭 Icons** | Character & Type Visuals | High-res character sprites, elemental megaphones, and Tera-icons. |
-| **🏅 Medals** | Achievements & Progress | Contest ribbons, milestone markers (001-700), and special awards. |
+| **🏅 Medals** | Achievements & Progress | Contest ribbons, Pokémon-style milestone markers (0000-1000), and special awards. |
 | **🥚 Eggs** | Biological Assets | Type-specific animated eggs and mystery variations. |
 | **👥 NPCs** | Character Sprites | Support characters like Professor Oak and field assistants. |
 
