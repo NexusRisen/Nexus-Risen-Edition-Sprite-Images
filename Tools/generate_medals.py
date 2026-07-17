@@ -67,21 +67,16 @@ for milestone in milestones:
     draw = ImageDraw.Draw(img)
     text = str(milestone)
     
-    bbox = draw.textbbox((0, 0), text, font=global_font)
-    text_width = bbox[2] - bbox[0]
-    text_height = bbox[3] - bbox[1]
-    
-    x = (width - text_width) / 2
-    # Adjust visual centering for '1' due to left serif in Impact font
-    if text == "1":
-        x -= width * 0.035
-        
-    y = (height - text_height) / 2 - bbox[1] + (height * 0.04)
+    # Use Pillow's native exact centering.
+    # The inner circle's true geometric center is offset exactly 30 pixels downwards
+    # from the image center on a 1024x1024 base image.
+    x = width / 2
+    y = height / 2 + (height * (30 / 1024))
     
     outline_color = (0, 0, 0, 255)
     text_color = (255, 255, 255, 255)
     
-    draw.text((x, y), text, font=global_font, fill=text_color, stroke_width=shadow_offset, stroke_fill=outline_color)
+    draw.text((x, y), text, font=global_font, fill=text_color, stroke_width=shadow_offset, stroke_fill=outline_color, anchor="mm")
     
     img_resized = img.resize((256, 256), Image.Resampling.LANCZOS)
     
